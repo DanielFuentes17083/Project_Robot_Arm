@@ -1,0 +1,19 @@
+#:kivy 2.0.0
+ 
+ 
+<MyWidget>:
+    Label:
+        text: "Slider"
+        pos: 300, 500
+        size: 140, 70
+        color: 0,1,0,1
+        font_size: 20
+    
+    Slider:
+    	id: Slider1
+    	min: 0
+    	max: 180
+    	step: 5
+    	orientation: 'horizontal'
+    	pos: 100, 100
+    	size: (200, self.height)
