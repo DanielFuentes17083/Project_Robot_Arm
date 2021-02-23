@@ -2,18 +2,131 @@
  
  
 <MyWidget>:
-    Label:
-        text: "Slider"
-        pos: 300, 500
-        size: 140, 70
-        color: 0,1,0,1
-        font_size: 20
-    
-    Slider:
-    	id: Slider1
-    	min: 0
-    	max: 180
-    	step: 5
-    	orientation: 'horizontal'
-    	pos: 100, 100
-    	size: (200, self.height)
+
+    BoxLayout:
+        orientation: 'vertical'
+        padding: [10, 10, 10, 10]
+        Label:
+            text: 'Robot Arm Controller'
+            size_hint_y: 0.2
+            size: 140, 70
+            color: 0,0,0,1
+            font_size: 40
+        BoxLayout:
+            orientation: 'horizontal'
+            BoxLayout:
+                orientation: 'vertical'
+                Label:
+                    text: '1rst Link'
+                    font_size: 30
+                    size_hint_x: 0.5
+                    pos_hint: {'left': 1}
+                    color: 0,0,0,1
+
+
+                Slider:
+                	id: Slider1
+                	min: 0
+                	max: 180
+                	step: 5
+                	orientation: 'horizontal'
+                	size: (200, self.height)
+
+
+                Label:
+                    text: '2nd Link'
+                    font_size: 30
+                    size_hint_x: 0.5
+                    pos_hint: {'left': 1}
+                    color: 0,0,0,1
+
+                Slider:
+                    id: Slider2
+                    min: 0
+                    max: 180
+                    step: 5
+                    orientation: 'horizontal'
+                    size: (200, self.height)
+                    pos_hint: {'top': 0.8}
+                
+                Label:
+                    text: 'Claw'
+                    font_size: 30
+                    size_hint_x: 0.5
+                    pos_hint: {'left': 1}
+                    color: 0,0,0,1
+                
+                Slider:
+                    id: Slider3
+                    min: 0
+                    max: 180
+                    step: 5
+                    orientation: 'horizontal'
+                    size: (200, self.height)
+
+                
+                Button:
+                    size_hint: (1, 0.5)
+                    text: 'Send'
+                    on_press: root.baseMove(round(Slider1.value), round(Slider2.value), round(Slider3.value), )
+
+            BoxLayout:
+                orientation: 'vertical'
+                size_hint_y: 0.9
+                size_hint_x: 0.5
+                pos_hint: {'top': 1}
+                Label:
+                    text: str(round(Slider1.value))+'°'
+                    font_size: 55
+
+                Label:
+                    text: str(round(Slider2.value))+'°'
+                    font_size: 55
+
+                Label:
+                    text: str(round(Slider3.value))+'°'
+                    font_size: 55
+
+            BoxLayout:
+                orientation: 'vertical'
+
+                Label:
+                    text: 'Base'
+                    font_size: 30
+                    color: 0,0,0,1
+
+                BoxLayout:
+                    orientation: 'horizontal'
+                    Button:
+                        text: 'Left'
+                        size_hint_y: 0.3
+                        pos_hint: {'top': 0.8}
+                        on_press: root.steppLeft()
+
+                    Button:
+                        text: 'Right'
+                        size_hint_y: 0.3
+                        pos_hint: {'top': 0.8}
+                        on_press: root.steppRight()
+
+                Label:
+                    text: 'Claw Rotation'
+                    font_size: 30
+                    color: 0,0,0,1
+
+                BoxLayout:
+                    orientation: 'horizontal'
+                    Button:
+                        text: 'Left'
+                        size_hint_y: 0.3
+                        pos_hint: {'top': 0.8}
+                        on_press: root.dcLeft()
+
+                    Button:
+                        text: 'Right'
+                        size_hint_y: 0.3
+                        pos_hint: {'top': 0.8}
+                        on_press: root.dcRight()
+
+
+        
