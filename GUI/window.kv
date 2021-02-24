@@ -68,7 +68,7 @@
                 Button:
                     size_hint: (1, 0.5)
                     text: 'Send'
-                    on_press: root.baseMove(round(Slider1.value), round(Slider2.value), round(Slider3.value), )
+                    on_press: root.baseMove(round(Slider1.value), round(Slider2.value), round(Slider3.value), root.port)
 
             BoxLayout:
                 orientation: 'vertical'
@@ -101,13 +101,13 @@
                         text: 'Left'
                         size_hint_y: 0.3
                         pos_hint: {'top': 0.8}
-                        on_press: root.steppLeft()
+                        on_press: root.steppLeft(root.port)
 
                     Button:
                         text: 'Right'
                         size_hint_y: 0.3
                         pos_hint: {'top': 0.8}
-                        on_press: root.steppRight()
+                        on_press: root.steppRight(root.port)
 
                 Label:
                     text: 'Claw Rotation'
@@ -120,13 +120,13 @@
                         text: 'Left'
                         size_hint_y: 0.3
                         pos_hint: {'top': 0.8}
-                        on_press: root.dcLeft()
+                        on_press: root.dcLeft(root.port)
 
                     Button:
                         text: 'Right'
                         size_hint_y: 0.3
                         pos_hint: {'top': 0.8}
-                        on_press: root.dcRight()
+                        on_press: root.dcRight(root.port)
 
 
         
