@@ -1,6 +1,7 @@
 from kivy.app import App
 from kivy.core.window import Window
 from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.widget import Widget
 import serial
 import struct
 
